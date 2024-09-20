@@ -1,0 +1,29 @@
+const quotes = {
+    en: [
+        "The only limit to our realization of tomorrow is our doubts of today. – Franklin D. Roosevelt",
+        "The purpose of our lives is to be happy. – Dalai Lama",
+        "Life is what happens when you're busy making other plans. – John Lennon"
+    ],
+    hi: [
+        "कल की हमारी उपलब्धि की एकमात्र सीमा आज के हमारे संदेह हैं। – फ्रैंकलिन डी. रूजवेल्ट",
+        "हमारी जिंदगी का उद्देश्य खुश रहना है। – दलाई लामा",
+        "जीवन वही है जो तब होता है जब आप अन्य योजनाएँ बनाने में व्यस्त होते हैं। – जॉन लेनन"
+    ],
+    kn: [
+        "ನಾಳೆಯ ನಮ್ಮ ಸಾಧನೆಯ ಏಕೈಕ ಮಿತಿ ಇಂದು naszych ಸಂದೇಹಗಳಾಗಿದೆ. – ಫ್ರ್ಯಾಂಕ್ಲಿನ್ ಡಿ. ರೂಸ್‌ವೆಲ್ಟ್",
+        "ನಮ್ಮ ಜೀವನದ ಉದ್ದೇಶ ಸಂತೋಷವಾಗಿರುವುದು. – ದಲೈ ಲಾಮಾ",
+        "ಆಗ ನೀವು ಇತರ ಯೋಜನೆಗಳನ್ನು ಮಾಡಲು ಬ್ಯುಸಿ ಇದ್ದಾಗ ಜೀವನವು ಏನಾಗುತ್ತದೆ. – ಜಾನ್ ಲೆನ್ನಾನ್"
+    ]
+};
+
+function getRandomQuote(language) {
+    const languageQuotes = quotes[language];
+    const randomIndex = Math.floor(Math.random() * languageQuotes.length);
+    return languageQuotes[randomIndex];
+}
+
+document.getElementById('generate-quote').addEventListener('click', () => {
+    const selectedLanguage = document.getElementById('language-select').value;
+    const quote = getRandomQuote(selectedLanguage);
+    document.getElementById('quote').innerText = quote;
+});
